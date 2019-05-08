@@ -1,0 +1,172 @@
+﻿@page
+@model S00190761_CA3_JamesMcKeon.Pages.CreateApplicationModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Create an Application";
+}
+
+<form method="post">
+    <fieldset>
+        <legend>About the Child</legend>
+
+        <div class="form-group">
+            <label asp-for="Child.FirstName" class="col-sm-2 control-label">
+                First Name
+            </label>
+            <div class="col-sm-10">
+                <input asp-for=Child.FirstName class="form-control" placeholder="Enter First Name">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for=Child.LastName class="col-sm-2 control-label">
+                Last Name
+            </label>
+            <div class="col-sm-10">
+                <input asp-for=Child.LastName class="form-control" placeholder="Enter Second Name" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for=Child.ppsID class="col-sm-2 control-label">
+                Child's PPS Number
+            </label>
+            <div class="col-sm-10">
+                <input asp-for=Child.ppsID class="form-control" placeholder="1234567X OR 1234567XX" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Child.DOB" class="col-sm-2 control-label">
+                DOB
+            </label>
+            <div class="col-sm-10">
+                <input asp-for=Child.DOB class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <fieldset class="col-sm-10">
+                <legend>Gender</legend>
+                <div>
+
+                    <label class="radio-inline">
+                        <input type="radio" id="Male" asp-for="Child.Gender" value="Male">
+                        Male
+                    </label>
+
+                    <label class="radio-inline">
+                        <input type="radio" id="Female" asp-for="Child.Gender" value="Female">
+                        Female
+                    </label>
+
+                    <label class="radio-inline">
+                        <input type="radio" id="Other" asp-for="Child.Gender" value="Other">
+                        Other
+                    </label>
+
+                </div>
+            </fieldset>
+        </div>
+    </fieldset>
+
+    <fieldset style="margin-top: 10px;">
+        <legend>About the Parent/Guardian</legend>
+
+        <div class="form-group">
+            <label asp-for="Child.ParentFirstName" class="col-sm-2 control-label">
+                First Name
+            </label>
+            <div class="col-sm-10">
+                <input asp-for=Child.ParentFirstName class="form-control" placeholder="Enter First Name">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for=Child.ParentLastName class="col-sm-2 control-label">
+                Last Name
+            </label>
+            <div class="col-sm-10">
+                <input asp-for=Child.ParentLastName class="form-control" placeholder="Enter Second Name" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for=Child.Email class="col-sm-2 control-label">
+                Email
+            </label>
+            <div class="col-sm-10">
+                <input asp-for=Child.Email class="form-control" placeholder="example@example.com" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for=Child.EmailConfirm class="col-sm-2 control-label">
+                Confirm Email
+            </label>
+            <div class="col-sm-10">
+                <input asp-for=Child.EmailConfirm class="form-control" placeholder="example@example.com" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <fieldset class="col-sm-10" style="margin-top: 10px;">
+                <legend>Your Relationship to the Child</legend>
+                <div>
+                    <label class="radio-inline">
+                        <input type="radio" id="Mother" asp-for="Child.Relationship" value="Mother">
+                        Mother
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" id="Father" asp-for="Child.Relationship" value="Father">
+                        Father
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" id="Other1" asp-for="Child.Relationship" value="Other">
+                        Other
+                    </label>
+                </div>
+            </fieldset>
+        </div>
+
+    </fieldset>
+
+    <fieldset style="margin-top: 15px;">
+        <legend>Choose Day and Time Requirements</legend>
+        <div class="form-group">
+            <fieldset class="col-sm-10">
+                <legend>How many days per week do you need?</legend>
+                <select asp-for="Child.numDays" class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+
+            </fieldset>
+            <fieldset class="col-sm-10" style="margin-top: 10px;">
+                <legend>Do you need Full Time or Part Time?</legend>
+                <div class="radio-inline">
+                    <label asp-for="Child.isFullTime" class="radio-inline">
+                        <input type="radio" name="Radio1" id="FullTime" asp-for="Child.isFullTime" value="true" checked>
+                        Full Time
+                    </label>
+                    <label asp-for="Child.isPartTime" class="radio-inline">
+                        <input type="radio" name="Radio1" id="PartTime" asp-for="Child.isPartTime" value="true">
+                        Part Time
+                    </label>
+                </div>
+            </fieldset>
+        </div>
+
+    </fieldset>
+
+    <asp-page ="ThankYou" asp-route-id="Child.ppsID">
+        <input type="submit" name="Submit" value="Submit" style="margin-top:15px;"/>
+
+    <div class="validation-summary-errors" asp-validation-summary=All style="float:left; font-weight:bold; color:darkred;">
+    </div>
+
+</form>
+

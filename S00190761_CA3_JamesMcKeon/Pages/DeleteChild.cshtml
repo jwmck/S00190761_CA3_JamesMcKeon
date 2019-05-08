@@ -1,0 +1,29 @@
+﻿@page "{id}"
+@model S00190761_CA3_JamesMcKeon.Pages.DeleteChildModel
+@{
+    ViewData["Title"] = "DeleteChild";
+}
+
+<h2>Warning: Cliking delete will permanently remove application for @Model.Child.FirstName @Model.Child.LastName</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>PPS</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Child.ppsID</td>
+            <td>@Model.Child.FirstName</td>
+            <td>@Model.Child.LastName</td>
+        </tr>
+    </tbody>
+</table>
+
+<form method="post">
+    <input type="hidden" asp-for=Child.ppsID>
+    <button type="submit">Delete</button>
+</form>

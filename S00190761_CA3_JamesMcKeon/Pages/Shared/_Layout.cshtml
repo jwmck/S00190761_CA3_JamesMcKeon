@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - James McKeon CA3 </title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+
+    <link href="~/css/site.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default" role="navigation">
+
+            <div class="navbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="/CreateApplication">Create an application</a></li>
+                    <li><a href="/ListApplications">List of Applications</a></li>
+                    <li><a href="/SearchApplication">Search Applications</a></li>
+                    <li><a href="/About">About Us</a></li>
+                    <li><a href="/api/pps">API</a></li>
+                </ul>
+            </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2019 - James McKeon, S00190761</p>
+        </footer>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

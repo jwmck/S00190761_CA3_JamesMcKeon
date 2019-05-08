@@ -1,0 +1,26 @@
+﻿@page
+@model S00190761_CA3_JamesMcKeon.Pages.SearchApplicationModel
+@{
+    ViewData["Title"] = "Search Application";
+}
+
+<h2>Search for and edit an Application</h2>
+
+<form method="post">
+    <fieldset>
+        <legend>Enter PPS Number to search for and edit an application.</legend>
+
+        <div class="form-group">
+            <label asp-for=id1 class="col-sm-2 control-label">
+                Child's PPS Number
+            </label>
+            <div class="col-sm-10">
+                <input asp-for=id1 class="form-control" placeholder="1234567X OR 1234567XX" />
+            </div>
+        </div>
+    </fieldset>
+
+    <button type="submit"> Search </button>
+</form>
+
+

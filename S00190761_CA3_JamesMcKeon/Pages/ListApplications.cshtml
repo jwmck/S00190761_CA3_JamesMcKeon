@@ -1,0 +1,50 @@
+﻿@page
+@model S00190761_CA3_JamesMcKeon.Pages.ListChildrenModel
+@{
+    ViewData["Title"] = "List Applications";
+}
+
+<h2>List of Applications</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>PPS Number</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+            <th>Number of Days</th>
+            <th>Full / Part Time</th>
+            <th>Edit Details</th>
+            <th>Delete Record</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var child in Model.Children)
+        {
+            // list out each of the properties.
+        <tr>
+            <td>@child.ppsID</td>
+            <td>@child.FirstName</td>
+            <td>@child.LastName</td>
+            <td>@child.DOB</td>
+            <td>@child.Gender</td>
+            <td>@child.numDays</td>
+            <td>
+                @if (child.isFullTime == true)
+                {
+                    @child.fullString;
+                }
+                else
+                {
+                    @child.partString;
+                }
+        </td>
+
+        <td> <a asp-page="EditChild" asp-route-id="@child.ppsID">Edit</a> </td>
+        <td> <a asp-page="DeleteChild" asp-route-id="@child.ppsID">Delete</a> </td>
+        </tr>
+        }
+    </tbody>
+</table>

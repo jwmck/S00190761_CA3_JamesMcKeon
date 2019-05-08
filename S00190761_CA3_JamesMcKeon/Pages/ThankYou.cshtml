@@ -1,0 +1,38 @@
+﻿@page  "{id}"
+@model S00190761_CA3_JamesMcKeon.Pages.ThankYouModel
+@{
+    ViewData["Title"] = "ThankYou";
+}
+
+<h2>Success! See below for application information.</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Second Name</th>
+            <th>PPS Number</th>
+            <th>Cost</th>
+            <th>Edit</th>
+            <th>Delete Record</th>
+        </tr>
+    </thead>
+    <tr>
+        <td>@Model.Child.FirstName</td>
+        <td>@Model.Child.LastName</td>
+        <td>@Model.Child.ppsID</td>
+        <td>
+            @if (Model.Child.isFullTime == true)
+            {
+                @Model.MessageFull;
+            }
+            else
+            {
+                @Model.MessageTemp;
+            }
+    </td>
+    <td> <a asp-page="EditChild" asp-route-id="@Model.Child.ppsID">Edit</a> </td>
+    <td> <a asp-page="DeleteChild" asp-route-id="@Model.Child.ppsID">Delete</a> </td>
+    </tr>
+</table>
+
